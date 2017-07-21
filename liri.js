@@ -28,10 +28,13 @@ var spotify = new Spotify(keys.spotifyKeys)
 	}
 
 	function spotify() {
-		spotify.search({ type: 'track', query: commandTwo, limit: 1}, function(err, data) {
+		spotify.search({ type: 'track', query: commandTwo, limit: 5}, function(err, data) {
 			if (err) {
 			    return console.log('Error occurred: ' + err);
 			  }
+			if (commandTwo === undefined) {
+				console.log("Pick a song please.. like 'The Sign'");
+			}
 		  	for (var i = 0; i < data.length; i++) {
 				console.log(JSON.stringify("Song: " + data.tracks.items[i].name, null, 2)); 
 				console.log(JSON.stringify("Band: " + data.tracks.items[i].album.artists[0].name, null, 2));
@@ -53,6 +56,9 @@ var spotify = new Spotify(keys.spotifyKeys)
 
 	 function movie() {
 		request('http://www.omdbapi.com/?apikey=40e9cece&t=' + commandTwo + `&tomatoes=true`, function (error, response, body) {
+			if (commandTwo === undefined) {
+				return console.log("Pick a movie please... like 'Mr. Nobody'");
+			}
 			omdb = JSON.parse(body);
 			console.log("Movie Title: " + omdb.Title);
 			console.log("Year: " + omdb.Year);
