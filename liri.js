@@ -31,18 +31,16 @@ var spotify = new Spotify(keys.spotifyKeys)
 		if (commandTwo === undefined) {
 			console.log("Pick a song next time, here's the song 'Eye of the Tiger'")
 			commandTwo = "Eye of the Tiger";
-
+		}
 		spotify.search({ type: 'track', query: commandTwo, limit: 1}, function(err, data) {
 			if (err) {
 			    return console.log('Error occurred: ' + err);
 			  }
-
 				console.log(JSON.stringify("Song: " + data.tracks.items[0].name, null, 2)); 
 				console.log(JSON.stringify("Band: " + data.tracks.items[0].album.artists[0].name, null, 2));
 				console.log(JSON.stringify("Album: " + data.tracks.items[0].album.name, null, 2));
 				console.log(JSON.stringify("URL: " + data.tracks.items[0].album.artists[0].external_urls.spotify, null, 2));
-	    });
-		}
+	    });	
 	}
 
 	function tweet() {
@@ -59,7 +57,7 @@ var spotify = new Spotify(keys.spotifyKeys)
 	 		if (commandTwo === undefined) {
 	 			console.log("Pick a movie next time, here's the movie 'It'")
 				commandTwo = "It";
-
+			}
 		request('http://www.omdbapi.com/?apikey=40e9cece&t=' + commandTwo + `&tomatoes=true`, function (error, response, body) {
 
 			omdb = JSON.parse(body);
@@ -72,7 +70,6 @@ var spotify = new Spotify(keys.spotifyKeys)
 			console.log("Actors: " + omdb.Actors);
 			console.log("URL: " + omdb.tomatoURL);
 		});
-		}
 	}
 
 	function doWhatItSays() {
