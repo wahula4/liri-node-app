@@ -1,13 +1,13 @@
 # liri-node-app
 
-Twitter search
-node liri.js my-tweets
+TWITTER SEARCH <br> 
+in the console run -- node liri.js my-tweets
 
-Movie search
+MOVIE SEARCH <br>
 in the console run -- node liri.js movie-this '<movie name here>'
 
-Spotify search
-node liri.js spotify-this-song '<song name here>'
+SPOTIFY SEARCH <br> 
+in the console run -- node liri.js spotify-this-song '<song name here>'
 
-Do what it says search
-node liri.js do-what-it-says
+DO WHAT IT SAYS <br>
+in the console run -- node liri.js do-what-it-says
